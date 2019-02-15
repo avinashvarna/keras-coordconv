@@ -125,8 +125,8 @@ class _CoordinateChannel(Layer):
             outputs = K.concatenate([inputs, xx_channels, yy_channels], axis=-1)
 
             if self.use_radius:
-                rr = K.sqrt(K.square(xx_channels - 0.5) +
-                            K.square(yy_channels - 0.5))
+                rr = K.sqrt(K.square(xx_channels) +
+                            K.square(yy_channels))
                 outputs = K.concatenate([outputs, rr], axis=-1)
 
             if self.data_format == 'channels_first':
